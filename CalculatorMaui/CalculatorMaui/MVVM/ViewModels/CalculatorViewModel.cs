@@ -48,8 +48,9 @@ namespace CalculatorMaui.MVVM.ViewModels
                 var result = table.Compute(Operation, "");
                 Result = result.ToString();
             }
-            catch
+            catch 
             {
+                Application.Current.MainPage.DisplayAlert("Error", $"Error de Sintaxis\nVuelve a Intentarlo","Ok");
                 Result = "0";
             }
         });
