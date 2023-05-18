@@ -1,5 +1,4 @@
-﻿using CalculatorMaui.MVVM.Models;
-using PropertyChanged;
+﻿using PropertyChanged;
 using System.Data;
 using System.Windows.Input;
 
@@ -8,14 +7,6 @@ namespace CalculatorMaui.MVVM.ViewModels
     [AddINotifyPropertyChangedInterface]
     public class CalculatorViewModel
     {
-        public CalculatorModel calculator;
-
-
-        public CalculatorViewModel()
-        {
-            calculator = new CalculatorModel();
-
-        }
 
         DataTable table = new DataTable();
         public String Result { get; set; } = "0";
@@ -48,9 +39,9 @@ namespace CalculatorMaui.MVVM.ViewModels
                 var result = table.Compute(Operation, "");
                 Result = result.ToString();
             }
-            catch 
+            catch
             {
-                Application.Current.MainPage.DisplayAlert("Error", $"Error de Sintaxis\nVuelve a Intentarlo","Ok");
+                Application.Current.MainPage.DisplayAlert("Error", $"Error de Sintaxis\nVuelve a Intentarlo", "Ok");
                 Result = "0";
             }
         });
